@@ -25,7 +25,6 @@ pipeline {
       steps {
         script {
           echo "Welcome...Build"
-          sh "mkdir builds"
           def buidJson = readJSON file: 'Build.json'
           print buildJson.Stage1
           buildJson.Stage1.each {
