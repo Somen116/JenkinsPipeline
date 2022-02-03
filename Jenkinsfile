@@ -27,13 +27,15 @@ pipeline {
           echo "Welcome...Build"
           def buidJson = readJSON file: 'Build.json'
           println(buidJson)
-          println("${buildJson.Stage1.name}")
-          print buildJson.Stage1
+          println("${buildJson.Stages.name}")
+          print buildJson.Stages.each {
+            item ->
               dir('builds') {
-                writeFile file: "${buildJson.Stage1.name}.txt", text: "${buildJson.Stage1.content}"
-                echo "Name-- ${buildJson.Stage1.name}"
-                echo "Content ${buildJson.Stage1.content}"
-              }
+                writeFile file: "${item.name}.txt", text: "${item.content}"
+                echo "Name-- ${item.name}"
+                echo "Content ${item.content}"
+                             }
+          }
           if (fileExists('builds.zip')) {
             echo "removing build.zip"
             sh "rm builds.zip"
