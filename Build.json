@@ -1,5 +1,5 @@
 {
-	"Stages" : [
+	"Stages": [
 		{
 		"Name":"Build", 
 		"Content":"This stage will do the build and create the artifacts"
