@@ -25,7 +25,7 @@ pipeline {
       steps {
         script {
           echo "Welcome...Build"
-          def empJson = readJSON file: 'build.json'
+          def empJson = readJSON file: 'Build.json'
           print empJson.employees
           empJson.employees.each {
             item ->
