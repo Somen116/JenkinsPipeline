@@ -26,7 +26,8 @@ pipeline {
         script {
           echo "Welcome...Build"
           def buildJson = readJSON file: 'Build.json'
-          println(buildJson)
+          //println(buildJson)
+          print buildJson.Stages
           //println("${buildJson.Stages.name}")
           buildJson.Stages.each {
             item ->
