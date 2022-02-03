@@ -27,41 +27,16 @@ pipeline {
           echo "Welcome...Build"
           def buidJson = readJSON file: 'Build.json'
           print buildJson.Stage1
-          buildJson.Stage1.each {
-            item ->
               dir('builds') {
-                writeFile file: "${item.name}.txt", text: "${item.content}"
-                echo "Name-- ${item.name}"
-                echo "Content ${item.content}"
+                writeFile file: "${buildJson.Stage1.name}.txt", text: "${buildJson.Stage1.content}"
+                echo "Name-- ${buildJson.Stage1.name}"
+                echo "Content ${buildJson.Stage1.content}"
               }
-          }
-          buildJson.Stage2.each {
-            item ->
-              dir('builds') {
-                writeFile file: "${item.name}.txt", text: "${item.content}"
-                echo "Name-- ${item.name}"
-                echo "Content ${item.content}"
-              }
-          }
-          buildJson.Stage3.each {
-            item ->
-              dir('builds') {
-                writeFile file: "${item.name}.txt", text: "${item.content}"
-                echo "Name-- ${item.name}"
-                echo "Content ${item.content}"
-              }
-          }
-          buildJson.Stage4.each {
-            item ->
-              dir('builds') {
-                writeFile file: "${item.name}.txt", text: "${item.content}"
-                echo "Name-- ${item.name}"
-                echo "Content ${item.content}"
-              }
-          }
           if (fileExists('builds.zip')) {
+            echo "removing build.zip"
             sh "rm builds.zip"
           }
+          echo "creating builds.zip"
           zip dir: 'builds', zipFile: 'builds.zip'
 
         }
