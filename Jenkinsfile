@@ -25,9 +25,34 @@ pipeline {
       steps {
         script {
           echo "Welcome...Build"
-          def empJson = readJSON file: 'Build.json'
-          print empJson.employees
-          empJson.employees.each {
+          sh "mkdir builds"
+          def buidJson = readJSON file: 'Build.json'
+          print buildJson.Stage1
+          buildJson.Stage1.each {
+            item ->
+              dir('builds') {
+                writeFile file: "${item.name}.txt", text: "${item.content}"
+                echo "Name-- ${item.name}"
+                echo "Content ${item.content}"
+              }
+          }
+          buildJson.Stage2.each {
+            item ->
+              dir('builds') {
+                writeFile file: "${item.name}.txt", text: "${item.content}"
+                echo "Name-- ${item.name}"
+                echo "Content ${item.content}"
+              }
+          }
+          buildJson.Stage3.each {
+            item ->
+              dir('builds') {
+                writeFile file: "${item.name}.txt", text: "${item.content}"
+                echo "Name-- ${item.name}"
+                echo "Content ${item.content}"
+              }
+          }
+          buildJson.Stage4.each {
             item ->
               dir('builds') {
                 writeFile file: "${item.name}.txt", text: "${item.content}"
