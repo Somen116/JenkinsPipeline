@@ -19,11 +19,12 @@ pipeline {
     }
 
     stage("Build") {
-      echo "Welcome...Build"
+      println("welcomebuild")
+      //echo "Welcome...Build"
       when {
         environment name: 'IS_HOLIDAY', value: "false"
       }
-      echo "Welcome...Build_2"
+      //echo "Welcome...Build_2"
       steps {
         script {
           echo "Welcome...Build_3"
