@@ -7,6 +7,14 @@
     {
       "name": "Static_Check",
       "content": "This stage will do the check foe the code qulaity whether it followd the coding standard or not"
+    },
+    {
+      "name": "QA",
+      "content": "This stage will do the check foe the code qulaity whether it followd the coding standard or not"
+    },
+    {
+      "name": "Unit_Test",
+      "content": "This stage will do the check foe the code qulaity whether it followd the coding standard or not"
     }
   ]
 }
