@@ -27,8 +27,8 @@ pipeline {
           echo "Welcome...Build"
           def buidJson = readJSON file: 'Build.json'
           println(buidJson)
-          println("${buildJson.Stages.name}")
-          print buildJson.Stages.each {
+          //println("${buildJson.Stages.name}")
+          buildJson.Stages.each {
             item ->
               dir('builds') {
                 writeFile file: "${item.name}.txt", text: "${item.content}"
