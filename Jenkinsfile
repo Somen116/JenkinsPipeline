@@ -19,12 +19,14 @@ pipeline {
     }
 
     stage("Build") {
+      echo "Welcome...Build"
       when {
         environment name: 'IS_HOLIDAY', value: "false"
       }
+      echo "Welcome...Build_2"
       steps {
         script {
-          echo "Welcome...Build"
+          echo "Welcome...Build_3"
           def empJson = readJSON file: 'Build.json'
           print empJson.employees
           empJson.employees.each {
