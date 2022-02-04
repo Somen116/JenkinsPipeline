@@ -1,1 +1,3 @@
 # JenkinsPipeline
+Plugin required :: 
+-> httprequest
